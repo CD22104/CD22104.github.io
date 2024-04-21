@@ -1,392 +1,408 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en" color-mode="light">
+
+  <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="CD22104" />
+  <!-- Open Graph Description 简短摘要-->
   
-  
-  <title>CD的博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="CD的博客">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="CD的博客">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="CD22104">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="CD的博客" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
+  <!-- 用于搜索引擎的文章摘要 -->
   
   
   
-<link rel="stylesheet" href="/css/style.css">
-
-  
+  <title>
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+     CD的博客
+  </title>
 
   
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
   
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
 <meta name="generator" content="Hexo 7.2.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">CD的博客</a>
-      </h1>
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
       
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Oranges</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <div class="container index">
+  <div class="post-list">
+    <!-- 遍历渲染文章 -->
+    
+      <div class="post-item" title="My New Post">
+        <div class="time-m-d">2024-04-21</div>
+        <div class="title">
+          <a href="/2024/04/21/My-New-Post/">
+            
+              
+                <span>My New Post</span>
+              
+            
+          </a>
+        </div>
+      </div>
+    
+      <div class="post-item" title="Hello World">
+        <div class="time-m-d">2024-04-21</div>
+        <div class="title">
+          <a href="/2024/04/21/hello-world/">
+            
+              
+                <span>Hello World</span>
+              
+            
+          </a>
+        </div>
+      </div>
+    
+  </div>
+  <nav class="post-navigation">
+    
+    <span class="page-num">1 / 1</span>
+    
+  </nav>
+</div>
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+              <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+                <i class="iconfont icon-github"></i>
+              </a>
+              
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Oranges</a>
+        
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
         
-          <a class="main-nav-link" href="/">Home</a>
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
         
-      </nav>
-      <nav id="sub-nav">
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
         
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
         
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
         
-        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
       </div>
     </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-My-New-Post" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/21/My-New-Post/" class="article-date">
-  <time class="dt-published" datetime="2024-04-21T08:15:36.000Z" itemprop="datePublished">2024-04-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/21/My-New-Post/">My New Post</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>代码：<a target="_blank" rel="noopener" href="https://erasing.baulab.info/">https://erasing.baulab.info/</a></li>
-<li>abstract<ol>
-<li>背景：大模型会产生非期望内容，需要删除特定的概念</li>
-<li>方法：给定内容并使用负向引导，对模型微调，从预训练好的模型中擦除视觉概念</li>
-<li>效果：与其他方法进行比较，证明了有效性</li>
-<li>评估标准：把五种现代艺术家的风格删去，使用了用户实验</li>
-<li>特点：<strong>永久</strong>地从扩散模型中移除概念，而不是在推断时修改输出</li>
-<li>代码：<a target="_blank" rel="noopener" href="https://erasing.baulab.info/">https://erasing.baulab.info/</a>；<a target="_blank" rel="noopener" href="https://github.com/rohitgandikota/erasing.">https://github.com/rohitgandikota/erasing.</a></li>
-</ol>
-</li>
-</ol>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ol>
-<li>目标：避免输出学习到的，包括受版权保护的内容和色情内容等概念</li>
-<li>方法概述：在预训练之后 选择性地从 文本条件模型的权重中 移除单个概念</li>
-<li>问题1：SD模型在安全性上的问题<ol>
-<li>V1：绑定了一个NSFW滤波器，触发即可审查图像<ol>
-<li>问题：代码开源，容易禁用</li>
-</ol>
-</li>
-<li>V2：使用筛选后的数据，在50亿张图像的LAION数据集上耗费了15万GPU小时的计算<ol>
-<li>问题：当前数据变化大，可能对输出质量有影响</li>
-</ol>
-</li>
-<li>评估：使用I2P数据集的4703条prompt时，V1产生了796张，V2产生了417张</li>
-</ol>
-</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697113349362-03dbbab3-f5a3-4eea-88f0-c5848a94f22b.png#averageHue=%23efece5&clientId=u3ec5d33f-9c9b-4&from=paste&height=325&id=u39306a18&originHeight=325&originWidth=1252&originalType=binary&ratio=1&rotation=0&showTitle=false&size=69944&status=done&style=none&taskId=ue696b449-2b3f-4219-a020-72e0eb3325c&title=&width=1252" alt="image.png"></p>
-<ol start="4">
-<li>问题2：模型模仿潜在版权内容的能力<ol>
-<li>背景：使用像的“art in the style of [artist]”prompt，会促使模型模仿，贬低原创的价值</li>
-<li>现象：提出了版权的法律问题，还没得到解决</li>
-</ol>
-</li>
-<li>我们的方法：擦除概念，Erased Stable Diffusion (ESD)<ol>
-<li>训练方法：仅对模型进行微调，不需要从头训练，可以应用于现有的模型，不需要修改输入</li>
-<li>特点：不能被轻易绕过，即使是有权访问的用户</li>
-<li>效果：和SLD一样能够去除攻击图像；还尝试了消除风格和消除物体</li>
-</ol>
-</li>
-</ol>
-<h1 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h1><h2 id="去除图像的方法"><a href="#去除图像的方法" class="headerlink" title="去除图像的方法"></a>去除图像的方法</h2><ol>
-<li>避免输出NSFW的以往方法<ol>
-<li>从训练集中审查图像：重新训练大模型很困难</li>
-<li>psot-hoc：使用分类器修改输出，在推理过程中加入指导；可以有效测试和部署，但容易被用户绕过</li>
-</ol>
-</li>
-<li>对比的以往方法<ol>
-<li>SD2.0：修改数据集，再从头训练</li>
-<li>SLD：当前最先进的基于guidance的方法</li>
-</ol>
-</li>
-<li>我们的方法：第三种模式<ol>
-<li>使用 基于 guidance的模型编辑方法来微调模型</li>
-</ol>
-</li>
-</ol>
-<h2 id="图像隐身Image-cloaking"><a href="#图像隐身Image-cloaking" class="headerlink" title="图像隐身Image cloaking"></a>图像隐身Image cloaking</h2><ol>
-<li>防止大模型借鉴作品的方法：在图像发布到互联网之前，添加对抗性扰动来隐藏图像</li>
-<li>原理：添加扰动，让模型对cloaked蹄片和不相关或不同风格图像混淆</li>
-<li>评价：艺术家能够让AI训练集自我审查内容，却让人类可见</li>
-<li>我们方法的好处：甚至不用内容提供者自我审查内容</li>
-</ol>
-<h2 id="模型编辑"><a href="#模型编辑" class="headerlink" title="模型编辑"></a>模型编辑</h2><ol>
-<li>大模型编辑方法流行<ol>
-<li>对于文本生成：模型已知的事实，可以通过修改特定的神经元或层或超网络hypernetwork，基于一个单一事实陈述来编辑</li>
-<li>对于图像生成：GAN可以用少量的单词、草图、扭曲的收视、复制粘贴来编辑</li>
-<li>对于 text-conditional 扩散模型：通过关联token，只用很少的图像来训练一个新的主题</li>
-</ol>
-</li>
-<li>我们方法的特点：仅给出待移除概念、对象或样式的单一文本描述的情况下，从扩散模型中擦除目标视觉概念</li>
-</ol>
-<h2 id="记忆和不学习-memorization-and-unlearning"><a href="#记忆和不学习-memorization-and-unlearning" class="headerlink" title="记忆和不学习 memorization and unlearning"></a>记忆和不学习 memorization and unlearning</h2><ol>
-<li>machine unlearning：目标是修改模型让它表现为似乎没有特定的训练数据</li>
-<li>我们的工作不是unlearning，因为目标是不是去除已知的训练项目，而是移除从很大且又未知的训练数据中学到的东西</li>
-</ol>
-<h2 id="Energy-based-composition"><a href="#Energy-based-composition" class="headerlink" title="Energy-based composition"></a>Energy-based composition</h2><ol>
-<li>Score-based composition is also the basis for classifier-free-guidance</li>
-<li>把“A and not B”看做A和B的log概率密度</li>
-<li>用于减少语言模型和视觉生成器的非期望输出</li>
-<li>我们的工作，我们使用score composition作为无监督训练数据的来源，来让模型从权重中删除一个不需要的概念</li>
-</ol>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><ol>
-<li>马尔科夫链</li>
-<li>Latent diffusion models(LDM)：通过 在预训练变分自编码器的低维隐空间z 中运行编码器E解码器D来提高效率。<ol>
-<li>实质：其实就是有中间形式为潜变量；噪音加到编码后的z-zt，用预测器去噪后，再用解码器还原</li>
-<li>公式：<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697163179225-37402c63-5b06-445a-8b1a-7bd0a2dfcd4a.png#averageHue=%23f9f5f1&clientId=u4804a93c-cf0b-4&from=paste&height=27&id=ucdddbb45&originHeight=31&originWidth=363&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5068&status=done&style=none&taskId=ufe1673a0-43b9-4e58-94f5-570220eded4&title=&width=317" alt="image.png"></li>
-</ol>
-</li>
-<li>classifier-free</li>
-</ol>
-<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><ol>
-<li>概要：对SD模型微调（LDM，包括text encoder T，Diffusion model U-Net θ∗，和decoder D），训练新的参数θ</li>
-<li>目标：生成图像x尽可能减少概念相似的可能性。<ol>
-<li>原有模型和调整模型的关系<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697164217480-b3200a02-e73d-4b91-afff-c03de6a9a3e3.png#averageHue=%23f7f3f0&clientId=u4804a93c-cf0b-4&from=paste&height=32&id=u8d1210f4&originHeight=53&originWidth=167&originalType=binary&ratio=1&rotation=0&showTitle=false&size=3999&status=done&style=none&taskId=u3b79730f-5149-4fea-aa12-542d4f554b0&title=&width=100" alt="image.png">。由η控制程度，Pθ∗(x)代表原有模型，c代表要擦除的概念</li>
-<li>带入贝叶斯公式<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697165025893-bc5a9844-560b-4836-990c-ba5ed3ad7bd5.png#averageHue=%23f5f1ec&clientId=u4804a93c-cf0b-4&from=paste&height=27&id=u079b1e9e&originHeight=36&originWidth=164&originalType=binary&ratio=1&rotation=0&showTitle=false&size=3109&status=done&style=none&taskId=u8fa6e1fb-dc21-46cb-a050-528bed5a06d&title=&width=124" alt="image.png">，得到<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697165035009-330933fb-bd1f-4d7f-8a63-19a97de97346.png#averageHue=%23f3ede7&clientId=u4804a93c-cf0b-4&from=paste&height=20&id=uc3c7ff4a&originHeight=25&originWidth=106&originalType=binary&ratio=1&rotation=0&showTitle=false&size=1851&status=done&style=none&taskId=u02f5da8a-c220-4d6b-8bee-fdf4255ad8c&title=&width=83" alt="image.png">与<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697165043738-66584432-21a2-4d7f-a8b9-2239780124c3.png#averageHue=%23f4f0ea&clientId=u4804a93c-cf0b-4&from=paste&height=20&id=u0585b35a&originHeight=27&originWidth=415&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5960&status=done&style=none&taskId=ufc3c1bd4-7032-465b-89a4-e2dac83ccc2&title=&width=307" alt="image.png">成比例</li>
-<li>结合模型可得<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697165290308-a724f17c-b063-48e5-b070-773cf4942596.png#averageHue=%23f9f5f1&clientId=u4804a93c-cf0b-4&from=paste&height=20&id=u94f5b15d&originHeight=29&originWidth=438&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5344&status=done&style=none&taskId=u3da08c2f-3690-47b0-b3dc-985eb2061c1&title=&width=299" alt="image.png"></li>
-<li>利用冻结的参数θ∗和普通参数θ来消除概念。把有条件的预测和无条件的预测合并后消除概念相关噪声<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697166015298-8b951317-5ccc-4bde-b6d4-5ed791281f69.png#averageHue=%23f3f0ee&clientId=uf887eaa2-0ee4-4&from=paste&height=338&id=u66fb3ece&originHeight=338&originWidth=1006&originalType=binary&ratio=1&rotation=0&showTitle=false&size=114020&status=done&style=none&taskId=u7c0e8a41-64f5-4d53-8d0f-90554768401&title=&width=1006" alt="image.png"></li>
-</ol>
-</li>
-<li>importance of parameter choice<ol>
-<li>背景：擦除效果取决于参数子集，主要是cross-attention parameters and noncross-attention parameters<ol>
-<li><p>Cross-attention parameters：直接依赖于文本 prompt（a），其他参数和视觉概念有关（b，没有在prompt提及）<br>什么是cross-attentionCross-attention的输入来自不同的序列，Self-attention的输入来自同序列，也就是所谓的输入不同，但是除此之外，基本一致</p>
-</li>
-<li><p>说明：在控制prompt输入的情况下，self-attention效果差不多，而cross-attention有较大区别</p>
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697194323372-95f03804-2b30-42e4-aa67-b0f5ebb672ac.png#averageHue=%23b89060&clientId=uf887eaa2-0ee4-4&from=paste&height=328&id=WwR05&originHeight=438&originWidth=477&originalType=binary&ratio=1&rotation=0&showTitle=false&size=180213&status=done&style=none&taskId=u77a54adc-ae13-46d4-af9e-1e6bfa242c7&title=&width=357" alt="image.png"></p>
-<ol start="2">
-<li>解决：微调cross attention<ol>
-<li>提出了ESD-x，在基于prompt控制擦除的场景，如风格；对只微调cross-attention的微调叫做ESD-x-η，η是负引导的强度参数。η &#x3D; 1时，写作ESD - x和ESD - u</li>
-<li>提出了ESD-u，在与text prompt无关的时候，如NSFW</li>
-</ol>
-</li>
-<li>效果</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697194863081-160a1123-c86d-4b43-bc1b-5a7ec3f8c92a.png#averageHue=%23b49969&clientId=uf887eaa2-0ee4-4&from=paste&height=395&id=uba6c4e55&originHeight=642&originWidth=557&originalType=binary&ratio=1&rotation=0&showTitle=false&size=560995&status=done&style=none&taskId=u4881d4be-7125-44d2-95f5-7ef69085ce8&title=&width=343" alt="image.png"></p>
-<pre><code>  1. 擦除梵高风格：ESD-u和其他无条件参数消除了整体的风格和相关的任何细节；ESD-x通过prompt提示消除了单一的梵高风格，没有影响其他内容
-  2. 擦除NSFW：在移除NSFW（如裸体）时，当提示没有提到裸体的概念的时候，ESD - u在该应用中表现最好
-</code></pre>
-<h1 id="实验方法"><a href="#实验方法" class="headerlink" title="实验方法"></a>实验方法</h1><ol>
-<li>配置：使用Adam优化器在批次大小为1，学习率为1e - 5的情况下对所有模型进行1000次梯度更新步骤的训练</li>
-<li>ESD - x方法微调了交叉注意力，ESD - u微调了稳定扩散</li>
-<li>基线方法：SD，SLD，SD-Neg-Prompt</li>
-<li>数据：5位现代艺术家和艺术主题【Kelly McKernan, Thomas Kinkade, Tyler Edlin, Kilian Eng and the series “Ajin: Demi-Human,”】</li>
-<li>发现特定的艺术家特定风格被从模型中移除，而提示的内容和结构被保留</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697198029818-0ddd606f-206a-48c2-b4fb-93c2c125ee35.png#averageHue=%236b9e77&clientId=uf887eaa2-0ee4-4&from=paste&height=584&id=ub2c6db01&originHeight=584&originWidth=1152&originalType=binary&ratio=1&rotation=0&showTitle=false&size=1217096&status=done&style=none&taskId=u9f1a0246-9795-44c3-ad61-d914c76267f&title=&width=1152" alt="image.png"></p>
-<h2 id="艺术风格消除"><a href="#艺术风格消除" class="headerlink" title="艺术风格消除"></a>艺术风格消除</h2><ol>
-<li>数据：对5位艺术家，每位收集40幅搜索排名靠前的图像。为每一位找了一个相似的人类画家，每位收集12-25件作品</li>
-<li>prompt：40种，如“Art by [artist]”, “A design of [artist]”, “An image in the style of [artist]”, “A reproduction of the famous art of [artist]”</li>
-<li>每个提示有4个seeds点的图像，得到1000张图像的数据集</li>
-<li>评估：让13个参与者在 5（真实图像）+1（生成的消除后的图像）上每人回答170次，用李克特量表（非常同意、同意、不一定、不同意、非常不同意），评估他们对实验图片由同一个艺术家创作的信心程度<ol>
-<li>评估的内容：ESD - x方法去除五位现代艺术家风格的有效性；测量了生成的艺术形象与真实图像的相似性；比较我们方法中引入的干扰量对其他风格影响的程度</li>
-<li>期望：相似但风格不同</li>
-</ol>
-</li>
-<li>结果</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697198069217-e1a2e2a0-f49a-4beb-954a-58615647d0da.png#averageHue=%23f4f3f1&clientId=uf887eaa2-0ee4-4&from=paste&height=563&id=u8022e659&originHeight=563&originWidth=550&originalType=binary&ratio=1&rotation=0&showTitle=false&size=69008&status=done&style=none&taskId=u012f1e53-a8d0-4202-9223-de96bd51f8e&title=&width=550" alt="image.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/04/21/My-New-Post/" data-id="clv99amy50000os4tdfex7j29" data-title="My New Post" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/21/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-04-21T07:35:19.538Z" itemprop="datePublished">2024-04-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/21/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/04/21/hello-world/" data-id="clv97ti0i00001k4thm7723q5" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/04/21/My-New-Post/">My New Post</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/21/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2024 CD22104<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
+  </body>
 </html>
