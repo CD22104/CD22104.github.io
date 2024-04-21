@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="CD22104" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      【论文】Multimodal datasets- misogyny, pornography, and malignant stereotypes 
+      
+      
+      |
+    
+     CD的博客
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Oranges</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">【论文】Multimodal datasets- misogyny, pornography, and malignant stereotypes</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2024-04-21 16:37:30
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <h1 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h1><ol>
+<li>背景：模型大，参数多，数据集大；数据质量不佳，在不透明数据集中大型视觉语言模型中根深蒂固的偏见（如Clip模型——学习图像和文本之间的匹配关系）</li>
+<li>Our work<ol>
+<li>检查了最近发布的LAION-400M数据集：一个CLIP-filtered dataset；从Common-Crawl dataset解析的 图像-alt-文本对</li>
+<li>存在问题：该数据集包含了强奸、色情、恶意刻板印象、种族主义和种族歧视，以及其他极其有问题的内容 在内的图像文本对</li>
+<li>强调了危害，并向不同相关人员提出公开的问题</li>
+<li>此文章存在NSFW（not safe for work）的内容</li>
+</ol>
+</li>
+</ol>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="多模态介绍"><a href="#多模态介绍" class="headerlink" title="多模态介绍"></a>多模态介绍</h2><ol>
+<li>多模态：联合建模视觉、文本和语音数据的模式；跨领域来摆脱训练孤岛<ol>
+<li>数据集形式_xi表示图片，ti表示对应文本描述，µi表示图像元数据。从整个互联网中来获取数据。_<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1702867630833-9be060e4-52bc-43e1-8cee-d1b3c08cbb96.png#averageHue=%23f7f4f0&clientId=u7594cf03-cc32-4&from=paste&id=u7311558f&originHeight=38&originWidth=254&originalType=url&ratio=1.25&rotation=0&showTitle=false&status=done&style=none&taskId=u9fdbf14e-440b-48da-9feb-b78396fabe4&title="></li>
+</ol>
+</li>
+</ol>
+<h2 id="多模态要素"><a href="#多模态要素" class="headerlink" title="多模态要素"></a>多模态要素</h2><ol>
+<li>WWW上的图像<ol>
+<li>计算机视觉数据集常见问题：偏见（性别、种族、地理），在图像中包含有问题的内容（非自愿的自窥图像和NSFW的内容），将这些图像与攻击性和不可想象的标签联系起来的可疑方法（污浊的词汇，性别错误表达，种族等），以及隐私问题</li>
+</ol>
+</li>
+<li>替代文本图像-标题对：&lt;img src&#x3D; “pupdanceparty.gif” alt&#x3D; “Puppies dancing”&gt;<ol>
+<li>作用：在无法看到或渲染元素（图像）时，可以利用该属性知道图像内容</li>
+<li>相关实践：W3C提供了图像分类，并描述了<strong>用于捕获</strong>生成与上传图片相关的替代文本<strong>最佳实践的Alt决策树（ADT）</strong></li>
+<li>问题：互联网中很多文字糟糕（缺少重要信息、没有或错误描述、冒犯，特殊字符），难以获得描述</li>
+</ol>
+</li>
+<li>从通用爬行器等语料库中收集到的文本内容<ol>
+<li>通用爬行（CC）数据集：来自www，当前320 TB的大小，跨越31亿页。被用作很多大型项目的数据集。<ol>
+<li>存在问题：有敏感性息，不可靠</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="LAION-400M"><a href="#LAION-400M" class="headerlink" title="LAION-400M"></a>LAION-400M</h1><h2 id="数据集和搜索门户"><a href="#数据集和搜索门户" class="headerlink" title="数据集和搜索门户"></a>数据集和搜索门户</h2><ol>
+<li>LAION-400M数据集：来自CC，包含数亿个图像文本对<ol>
+<li>使用CC训练的CLIP过滤：CLIP-文本和CLIP-图像的embedding间的余弦相似度小于0.3</li>
+</ol>
+</li>
+<li>管理者提供语义搜索门户：通过图形用户界面提供了一个 K最近邻Clip检索 的索引<ol>
+<li>相关ML社区担心即使在良性查询时，也会遇到不良内容</li>
+</ol>
+</li>
+</ol>
+<h2 id="搜索门户中的问题"><a href="#搜索门户中的问题" class="headerlink" title="搜索门户中的问题"></a>搜索门户中的问题</h2><ol>
+<li>厌女症和刻板印象<ol>
+<li>非NSFW搜索条件中显著高比例的NSFW结果：性暴力和其他图像</li>
+<li>一些术语：存在刻板印象和政治偏见</li>
+</ol>
+</li>
+<li>说明：样本图像揭示了特定的语义搜索引擎版本如何从LAION-400M获取图像<ol>
+<li>放大女性的过度性感和厌恶女性的表现</li>
+<li>让人想起盎格鲁-中心、欧洲中心，甚至是潜在的白人至上主义意识形态</li>
+</ol>
+</li>
+<li>原因：CLIP-retrieval + Autofaiss module(Clip检索+自动制造)+image-retrieval pipeline（图像检索管道）<ol>
+<li>要求NSFW内容占到1%及以下</li>
+</ol>
+</li>
+<li>措施：初步定量调查<ol>
+<li>下载了与URL和标题元数据集相关的所有32个压缩拼花文件，包括8个字段</li>
+<li>通过TEXT字段来匹配搜索内容，选取图像</li>
+<li>替代的NSFW过滤器：检查Text或URL字段中是否存在不良术语<ol>
+<li>N-match表示搜索到的匹配项，第二列表示其中不良内容的比例；第三列表示Clip分析的结果</li>
+<li>说明这个Clip不好用，且需要引入文本过滤步骤（基于维基百科的图像文本数据集和概念标题数据集）</li>
+<li>很多专家使用了更复杂的文本匹配的过滤方式</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1702867630890-e89c82c4-654d-4258-bfa5-0186c7619579.png#averageHue=%23e7e3e0&clientId=u7594cf03-cc32-4&from=paste&id=u6868a7a6&originHeight=159&originWidth=1158&originalType=url&ratio=1.25&rotation=0&showTitle=false&status=done&style=none&taskId=ude5eee87-e3f7-4bb8-99ec-023469c5996&title="></li>
+<li>文本不良，图像良好的情况<ol>
+<li>有包含NSFW和攻击性文本标签的图像描述</li>
+<li>可以使用预训练视觉模型去预测文本标签，从而过滤60%的备选项</li>
+</ol>
+</li>
+</ol>
+<h1 id="创建LAION-400M的过程"><a href="#创建LAION-400M的过程" class="headerlink" title="创建LAION-400M的过程"></a>创建LAION-400M的过程</h1><p>必备因素：动机；一个大规模的基础源；过滤机制。</p>
+<h2 id="动机：创造数据集和模型的开源变体"><a href="#动机：创造数据集和模型的开源变体" class="headerlink" title="动机：创造数据集和模型的开源变体"></a>动机：创造数据集和模型的开源变体</h2><p>LAION-400M初始动机：创造下述内容的开源变体——不透明的WIT（WebImageText）数据集、CLIP和DALL-E模型</p>
+<h2 id="图像文本数据集：发展、用规模打败噪音"><a href="#图像文本数据集：发展、用规模打败噪音" class="headerlink" title="图像文本数据集：发展、用规模打败噪音"></a>图像文本数据集：发展、用规模打败噪音</h2><ol>
+<li>图像-文本多模态数据集的管理方式发生了转变<ol>
+<li>刚开始：100Million最大，对预先存在的图片增加人工注释</li>
+<li>最近：数据集变大（ 400 million），在www上寻找图片字幕。如CLIP, ALIGN, MUM and Wu Dao 2.0</li>
+<li>ALIGN：billon级别，，节约了人力成本，“规模胜过噪音”的观念。Wu Dao 2.0可以基于静态图像<strong>生成alt文本</strong>，并基于自然语言描述生成接近照片真实的图像</li>
+</ol>
+</li>
+<li>规模打败噪音<ol>
+<li>Jia et al.声称用大规模数据训练，且不做过滤。节约了高昂的管理成本</li>
+<li>图像和文本不匹配可以看作噪声，而错误的字幕可以被其他正确字幕的图片给平均掉不好的效果</li>
+</ol>
+</li>
+</ol>
+<h2 id="过滤机制：CLIP"><a href="#过滤机制：CLIP" class="headerlink" title="过滤机制：CLIP"></a>过滤机制：CLIP</h2><ol>
+<li>过滤含义：只包含图像和文本高度匹配的内容</li>
+<li>原理：在LAION-400M的背景下<ol>
+<li>计算通过CLIP模型获得的文本描述和图像嵌入之间的余弦相似度</li>
+<li>然后去除0.3以下的余弦相似度</li>
+</ol>
+</li>
+<li><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1702867630874-960c6d83-93df-473b-86d3-548113eb8c77.png#averageHue=%23e7df23&clientId=u7594cf03-cc32-4&from=paste&id=ud6170b98&originHeight=584&originWidth=840&originalType=url&ratio=1.25&rotation=0&showTitle=false&status=done&style=none&taskId=u4d1c6404-81e9-4ead-86e3-bf3585796c7&title="></li>
+<li>存在的问题：数据乱伦问题，已知的攻击性错误关联的下游传播以及模型的意外使用，无意义地使用模型</li>
+<li>CLIP’s model card：不是为通用模型部署而开发的 - 要部署像CLIP这样的模型，研究人员首先需要仔细研究它们与部署的特定上下文相关的功能。<ol>
+<li>因为考虑到CLIP在不同类别分类中的性能变化使得未经测试和不受约束的模型部署在当前任何用例中都具有潜在的危害。</li>
+</ol>
+</li>
+<li><ul>
+<li>模型卡 * (Model Cards)，提供了用于报告 ML 模型来源、用途以及道德知情评估的结构化框架，并详细概述了有益于开发者、监管机构和下游用户的模型用途建议和限制</li>
+</ul>
+</li>
+<li>余弦相似度阈值：强烈错误关联，可能会放大CC语料库中对攻击性样本的选择偏差。<ol>
+<li>0.3余弦相似性阈值的假设成为麻烦的根源。 corner-cases（不常见的case）如下<ol>
+<li>文本1（0.28）：“这是一张身着美国国旗的宇航员的肖像”；（良性） 文本2（0.31）：“这是一张微笑的家庭主妇穿着橙色连身衣的照片。”（厌女） 说明CLIP中包含性别偏见。<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1702867630910-e9252881-c9e1-43e4-94bd-8e5a76d54ff5.png#averageHue=%23a77b67&clientId=u7594cf03-cc32-4&from=paste&id=ua2c77aec&originHeight=534&originWidth=564&originalType=url&ratio=1.25&rotation=0&showTitle=false&status=done&style=none&taskId=ub49c7cc0-90c9-4d36-bdf1-67ded0607f7&title="></li>
+<li>文本1（0.28）：“这是美国前总统的肖像”。 文本2（0.30）：“这是第一个在肯尼亚出生的美国非法总统的肖像”。<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1702867630963-cdcd3b8f-dd47-46b9-8586-a8e46d62aec3.png#averageHue=%239ca196&clientId=u7594cf03-cc32-4&from=paste&id=u2434c896&originHeight=619&originWidth=550&originalType=url&ratio=1.25&rotation=0&showTitle=false&status=done&style=none&taskId=u3c9935ff-c194-4549-91f3-245222c31ca&title="></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="数据集处理过程中的问题"><a href="#数据集处理过程中的问题" class="headerlink" title="数据集处理过程中的问题"></a>数据集处理过程中的问题</h1><h2 id="不对称的工作量：爬行v-s-数据过滤和模型解毒"><a href="#不对称的工作量：爬行v-s-数据过滤和模型解毒" class="headerlink" title="不对称的工作量：爬行v&#x2F;s 数据过滤和模型解毒"></a>不对称的工作量：爬行v&#x2F;s 数据过滤和模型解毒</h2><ol>
+<li>WWW挖掘数据集的爬行和聚合阶段<ol>
+<li>异步、工具、python库让挖掘非常便宜、民主，投资回报高</li>
+</ol>
+</li>
+<li>随后的危害减少阶段（过滤数据集、对在数据集上训练的模型进行解毒）<ol>
+<li>文本过滤、图像过滤、联合过滤、各种API</li>
+<li>精细、费力，投资回报低</li>
+</ol>
+</li>
+</ol>
+<h2 id="“进步”的不对称性：模型进步与数据集进步"><a href="#“进步”的不对称性：模型进步与数据集进步" class="headerlink" title="“进步”的不对称性：模型进步与数据集进步"></a>“进步”的不对称性：模型进步与数据集进步</h2><ol>
+<li>模型进步<ol>
+<li>很快被接受：如模型大小、训练速度、精度</li>
+</ol>
+</li>
+<li>数据集的修复<ol>
+<li>被忽视、需要很长时间改变：比如不课程现象、隐私损失</li>
+<li>量大，非常困难</li>
+</ol>
+</li>
+</ol>
+<h2 id="劳动的不对称性：情感创伤"><a href="#劳动的不对称性：情感创伤" class="headerlink" title="劳动的不对称性：情感创伤"></a>劳动的不对称性：情感创伤</h2><ol>
+<li>数据集清理中的情感创伤工作总是被忽视<ol>
+<li>在处理NSFW图片的过程中会引起不适</li>
+<li>遭到了学术界的负面批评。阻碍了工作</li>
+</ol>
+</li>
+</ol>
+<h1 id="多模态数据集的优劣、提出开放问题"><a href="#多模态数据集的优劣、提出开放问题" class="headerlink" title="多模态数据集的优劣、提出开放问题"></a>多模态数据集的优劣、提出开放问题</h1><ol>
+<li>LAION-400M的优劣<ol>
+<li>好处：让大家能够接触到如此大规模的视觉-语言数据集。让更多人群探讨更多，理解数据影响，训练模型</li>
+<li>坏处：没有意识到人权，会导致收到数据集和模型的下游影响</li>
+</ol>
+</li>
+<li>向相关人士提出了问题<ol>
+<li>数据集中应该是什么？<ol>
+<li>在深度学习之前，数据集通常是有目的收集的：许多这些数据集都有固有的问题并造成了仅限于它们的问题域的损害。</li>
+<li>目前，试图在<strong>大型互联网收集</strong>的数据集上训练大规模的“<strong>通用”人工智能模型</strong>，然后对它们进行<strong>微调</strong>（或专门化）到目标任务。重要的是要询问在神经网络的权重内应该压缩什么，以及通过代理，在训练数据集中是什么。哪些信息被压缩和传递给了用户</li>
+</ol>
+</li>
+<li>这能实现AGI吗<ol>
+<li>有很多人工智能研究员相信：从www收到的大量数据可以通往人工通用智能（AGI）</li>
+<li>但其中有很多不良内容，这真的能训练出优秀的人工智能吗？</li>
+<li>处于社会边缘的个人和社区支付的代价最高，这值得吗？</li>
+</ol>
+</li>
+<li>大型神经网络是一种新的非法材料分布媒介吗<ol>
+<li>模型会记住非法信息，模型反演能从中恢复多少信息。能否用来走私非法数据</li>
+</ol>
+</li>
+<li>谁的数据权限，谁的数据所有权？<ol>
+<li>非法内容的主人公是无意识的。是否或如何传播这种数据集？</li>
+<li>_”diffusion of responsibility”：_数据集<strong>作者将</strong> 确保版权不受侵犯的<strong>责任委托给数据集用户</strong>，并将他们的责任分散给其他人。作者仍有可能违反各地法律</li>
+<li>道德的问题：图像的主人公没有被通知，尤其不良照片可能会造成实际威胁</li>
+<li>谁来删除不良数据，普通用户有能力去删除吗？</li>
+<li>即便公开数据集有利于促进问题解决，但过程中数据主题的权利问题仍然存在。</li>
+</ol>
+</li>
+<li>内容审核和过滤在这个规模上可行吗？<ol>
+<li>算法过滤是不可靠或有害的。过滤需要时间和资源。能不能清除干净，剩下的仍有可能被学习到</li>
+<li>一个组织能不能发布他们过滤不了的数据集？如果不能，那是不是大规模数据集被强技术公司垄断？</li>
+<li>很多私有大型数据集也存在这些问题，需要数据集审计师。</li>
+</ol>
+</li>
+<li>网络废弃数据中的这种“多模式”是否加剧了停滞不前的刻板印象？<ol>
+<li>多模态中，一种模式会不会混淆其他模式。图像和语言处理的核心思路不同。探索融合可能产生的问题</li>
+<li>用的alt文本并不多，可用的文本描述质量非常低</li>
+<li>多模态是否有可能会产生更加刻板映像的结果</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><ol>
+<li>LAION-400M数据集提供了对大规模处理多模态视觉语言数据集的挑战和问题的第一手见解。<ol>
+<li>开放访问发布需要承认，但发布和传播存在严重问题。</li>
+<li>庞大的数据集仍然是封闭的，隐藏在大型机构和组织中。这可能会阻碍对如此大的数据集的研究进展</li>
+<li>隐藏的大规模数据集的下游影响可能对边缘社区造成毁灭性的影响。鼓励他们保持研究人员可访问的</li>
+<li>在规模上证明了CLIP的严重缺陷</li>
+</ol>
+</li>
+<li>retraction撤回通常是阻力最小的路径。<ol>
+<li>尽管被撤回，这些数据集仍然可以通过文件共享网站和衍生品广泛获得。</li>
+<li>撤回后仍被广泛使用，但对发展无意义。</li>
+<li>更严格的许可将有助于限制该数据集在非研究环境中的使用</li>
+</ol>
+</li>
+<li>强烈鼓励其他大型机构以一种深思熟虑的方式向内部和外部审计开放他们的数据集</li>
+</ol>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2024/04/21/My-New-Post/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2024-04-21 16:37:30
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Abstract"><span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E4%BB%8B%E7%BB%8D"><span class="toc-text">多模态介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E8%A6%81%E7%B4%A0"><span class="toc-text">多模态要素</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#LAION-400M"><span class="toc-text">LAION-400M</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E5%92%8C%E6%90%9C%E7%B4%A2%E9%97%A8%E6%88%B7"><span class="toc-text">数据集和搜索门户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E9%97%A8%E6%88%B7%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">搜索门户中的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BALAION-400M%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">创建LAION-400M的过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%9C%BA%EF%BC%9A%E5%88%9B%E9%80%A0%E6%95%B0%E6%8D%AE%E9%9B%86%E5%92%8C%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BC%80%E6%BA%90%E5%8F%98%E4%BD%93"><span class="toc-text">动机：创造数据集和模型的开源变体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E6%96%87%E6%9C%AC%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%9A%E5%8F%91%E5%B1%95%E3%80%81%E7%94%A8%E8%A7%84%E6%A8%A1%E6%89%93%E8%B4%A5%E5%99%AA%E9%9F%B3"><span class="toc-text">图像文本数据集：发展、用规模打败噪音</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E6%BB%A4%E6%9C%BA%E5%88%B6%EF%BC%9ACLIP"><span class="toc-text">过滤机制：CLIP</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">数据集处理过程中的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%AF%B9%E7%A7%B0%E7%9A%84%E5%B7%A5%E4%BD%9C%E9%87%8F%EF%BC%9A%E7%88%AC%E8%A1%8Cv-s-%E6%95%B0%E6%8D%AE%E8%BF%87%E6%BB%A4%E5%92%8C%E6%A8%A1%E5%9E%8B%E8%A7%A3%E6%AF%92"><span class="toc-text">不对称的工作量：爬行v&#x2F;s 数据过滤和模型解毒</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%9C%E8%BF%9B%E6%AD%A5%E2%80%9D%E7%9A%84%E4%B8%8D%E5%AF%B9%E7%A7%B0%E6%80%A7%EF%BC%9A%E6%A8%A1%E5%9E%8B%E8%BF%9B%E6%AD%A5%E4%B8%8E%E6%95%B0%E6%8D%AE%E9%9B%86%E8%BF%9B%E6%AD%A5"><span class="toc-text">“进步”的不对称性：模型进步与数据集进步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%B3%E5%8A%A8%E7%9A%84%E4%B8%8D%E5%AF%B9%E7%A7%B0%E6%80%A7%EF%BC%9A%E6%83%85%E6%84%9F%E5%88%9B%E4%BC%A4"><span class="toc-text">劳动的不对称性：情感创伤</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E6%A8%A1%E6%80%81%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E4%BC%98%E5%8A%A3%E3%80%81%E6%8F%90%E5%87%BA%E5%BC%80%E6%94%BE%E9%97%AE%E9%A2%98"><span class="toc-text">多模态数据集的优劣、提出开放问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+              <a title="github" target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">
+                <i class="iconfont icon-github"></i>
+              </a>
+              
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2024 Oranges</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E3%80%90%E8%AE%BA%E6%96%87%E3%80%91Multimodal%20datasets-%20misogyny%2C%20pornography%2C%20and%20malignant%20stereotypes + '&url=' + http%3A%2F%2Fexample.com%2F2024%2F04%2F21%2F%25E3%2580%2590%25E8%25AE%25BA%25E6%2596%2587%25E3%2580%2591Multimodal-datasets-misogyny-pornography-and-malignant-stereotypes%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2024/04/21/%E3%80%90%E8%AE%BA%E6%96%87%E3%80%91Multimodal-datasets-misogyny-pornography-and-malignant-stereotypes/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  </body>
+</html>

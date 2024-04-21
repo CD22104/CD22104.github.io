@@ -13,7 +13,7 @@
   
   <title>
     
-      My New Post 
+      【论文】Fair diffusion-Instructing Text-to-Image Generation Models on Fairness 
       
       
       |
@@ -153,160 +153,179 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">My New Post</div>
+      <div class="post-title">【论文】Fair diffusion-Instructing Text-to-Image Generation Models on Fairness</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2024-04-21 16:18:03
+          2024-04-21 16:33:15
         </span>
         
       </div>
       <div class="markdown-body">
-        <ol>
-<li>代码：<a target="_blank" rel="noopener" href="https://erasing.baulab.info/">https://erasing.baulab.info/</a></li>
-<li>abstract<ol>
-<li>背景：大模型会产生非期望内容，需要删除特定的概念</li>
-<li>方法：给定内容并使用负向引导，对模型微调，从预训练好的模型中擦除视觉概念</li>
-<li>效果：与其他方法进行比较，证明了有效性</li>
-<li>评估标准：把五种现代艺术家的风格删去，使用了用户实验</li>
-<li>特点：<strong>永久</strong>地从扩散模型中移除概念，而不是在推断时修改输出</li>
-<li>代码：<a target="_blank" rel="noopener" href="https://erasing.baulab.info/">https://erasing.baulab.info/</a>；<a target="_blank" rel="noopener" href="https://github.com/rohitgandikota/erasing.">https://github.com/rohitgandikota/erasing.</a></li>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
+<li>提出了一种称为公平扩散的新策略，以在部署生成文本到图像模型后减弱偏见。<ul>
+<li>基于人类指令的偏见向任何方向转移，从而产生任意比例，例如身份群体。不需要数据过滤或额外的培训</li>
+</ul>
+</li>
+<li>代码：Our code is publicly available at <a target="_blank" rel="noopener" href="https://github.com/ml-research/Fair-Diffusion">https://github.com/ml-research/Fair-Diffusion</a></li>
+<li>效果：<a target="_blank" rel="noopener" href="https://huggingface.co/spaces/AIML-TUDA/FairDiffusionExplorer">https://huggingface.co/spaces/AIML-TUDA/FairDiffusionExplorer</a></li>
+</ul>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul>
+<li>Stable Diffusion作为一种Diffusion Models是目前广泛使用的图像合成模型的变体，它基于文本输入生成逼真的高质量图像</li>
+<li>我们的工作<ul>
+<li>审核生成模型的当前<strong>偏差的来源</strong>: stable diffusion的底层大规模数据集，和他的预训练模块<ul>
+<li>创建LAION-5B的子集：包含超过1.8M张图片，描绘了150多个职业，以接近目前的性别职业偏见</li>
+</ul>
+</li>
+<li><strong>评估</strong>其缓解措施：data-processing, in-process approaches<ul>
+<li>提出了Fair Diffusion：在生成模型的部署阶段缓解偏差，利用一个（文本）界面来指导模型从而实现公平</li>
+</ul>
+</li>
+<li>讨论Fair Diffusion的未来路径，如何融入社会促进公平</li>
+</ul>
+</li>
+<li>意义<ul>
+<li>首次为DM的公平性提供了一种实用的方法</li>
+<li>用户可以重新获得对模型输出的控制权</li>
+</ul>
+</li>
+</ul>
+<h1 id="Fair-Diffusion"><a href="#Fair-Diffusion" class="headerlink" title="Fair Diffusion"></a>Fair Diffusion</h1><h2 id="公平性的定义"><a href="#公平性的定义" class="headerlink" title="公平性的定义"></a>公平性的定义</h2><ol>
+<li>概括<ol>
+<li>粗略地说，公平可以概括为由于某种属性而没有任何有利于一个人的倾向。</li>
+<li>公平也是非常主观的Fair Diffusion的公平性定义为：数据集和模型的 算法公平性。</li>
+<li>作用：公平的定义用来评价数据集和生成模型的公平性</li>
+<li>存在的问题，在多个非二元属性可能相互干扰的情况下，同时满足它们变得更加具有挑战性。这种公平性定义要求所有属性都是已知的、可定义的、可测量的和可分离的</li>
+</ol>
+</li>
+<li>具体<ol>
+<li>y表示对应于x的label（firefighter），a表示一个保护的属性（gender），P是一个概率</li>
+<li>要求是二进制的属性</li>
+<li>用同样的概率随机选择引导的方向，形成了一个统一的概率分布，为每个属性的表达赋予相同的概率</li>
 </ol>
 </li>
 </ol>
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ol>
-<li>目标：避免输出学习到的，包括受版权保护的内容和色情内容等概念</li>
-<li>方法概述：在预训练之后 选择性地从 文本条件模型的权重中 移除单个概念</li>
-<li>问题1：SD模型在安全性上的问题<ol>
-<li>V1：绑定了一个NSFW滤波器，触发即可审查图像<ol>
-<li>问题：代码开源，容易禁用</li>
-</ol>
+<h2 id="策略：在文本指导下实现公平性"><a href="#策略：在文本指导下实现公平性" class="headerlink" title="策略：在文本指导下实现公平性"></a>策略：在文本指导下实现公平性</h2><ol>
+<li><p>在部署阶段指导预训练模型的公平性</p>
 </li>
-<li>V2：使用筛选后的数据，在50亿张图像的LAION数据集上耗费了15万GPU小时的计算<ol>
-<li>问题：当前数据变化大，可能对输出质量有影响</li>
-</ol>
+<li><p>Fair Diffusion可以作为指导界面实现很多操作，如用文本改变图像的生成过程</p>
 </li>
-<li>评估：使用I2P数据集的4703条prompt时，V1产生了796张，V2产生了417张</li>
-</ol>
+<li><p>这里用SEGA做测试<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2301.12247">https://arxiv.org/abs/2301.12247</a>，可以通过文本高度灵活地编辑图像细节。比如基于检测到的偏见，将其作为指令存储在lookup table中来引导模型<br>SEGA语义引导（SEGA）允许进行细微而广泛的编辑、改变构图和风格，以及优化整体艺术构思</p>
+</li>
+<li><p>Fair Diffusion继承了无分类器引导<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2207.12598">https://arxiv.org/abs/2207.12598</a>，增加了一个公平引导项γ来生成图像x。这样生成器η就变成了一个关于输入prompt p和引导项γ组成的函数，其中γ通过附加的属性文本描述ei,和程度控制来获得</p>
+</li>
+<li><p>为了实现Fair Diffusion属性的不同表示，用期望概率分布P中随机采样来控制引导方向。也就是说属性的增加和抑制通过ei的增加和减少来控制</p>
+</li>
+<li><p>评价：再次用分类器对得到的属性比例验证，理想情况下，用户定义的比例和测量比例匹配<br>classifier-free guidanceSOTA：SOTA model：state-of-the-art model，并不是特指某个具体的模型，而是指在该项研究任务中，目前最好&#x2F;最先进的模型。<br>SOTA result：state-of-the-art result，指的是在该项研究任务中，目前最好的模型的结果&#x2F;性能&#x2F;表现<br>Classifier-Guidance：直接复用别人训练好的无条件扩散模型，用一个分类器来调整生成过程以实现控制生成<br>Classifier-Free：而对于“财大气粗”的Google、OpenAI等公司来说，它们不缺数据和算力，所以更倾向于往扩散模型的训练过程中就加入条件信号，达到更好的生成效果</p>
 </li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697113349362-03dbbab3-f5a3-4eea-88f0-c5848a94f22b.png#averageHue=%23efece5&clientId=u3ec5d33f-9c9b-4&from=paste&height=325&id=u39306a18&originHeight=325&originWidth=1252&originalType=binary&ratio=1&rotation=0&showTitle=false&size=69944&status=done&style=none&taskId=ue696b449-2b3f-4219-a020-72e0eb3325c&title=&width=1252" alt="image.png"></p>
-<ol start="4">
-<li>问题2：模型模仿潜在版权内容的能力<ol>
-<li>背景：使用像的“art in the style of [artist]”prompt，会促使模型模仿，贬低原创的价值</li>
-<li>现象：提出了版权的法律问题，还没得到解决</li>
+<h2 id="具体实现方法"><a href="#具体实现方法" class="headerlink" title="具体实现方法"></a>具体实现方法</h2><h3 id="Diffusion-model-介绍"><a href="#Diffusion-model-介绍" class="headerlink" title="Diffusion model 介绍"></a>Diffusion model 介绍</h3><ol>
+<li>大模型工作应用广泛，但存在偏见</li>
+<li>其基本的原理：从随机噪声z开始，模型预测该噪声的估计。把输入减去估计的噪声最终得到一张图片。同时引入了step，prompt p的编码</li>
+</ol>
+<h3 id="公平性模型的常见方法"><a href="#公平性模型的常见方法" class="headerlink" title="公平性模型的常见方法"></a>公平性模型的常见方法</h3><ol>
+<li>在学习之前对训练数据进行预处理以消除偏差</li>
+<li>在训练过程中通过引入对学习目标的约束来增强公平性</li>
+<li>在部署阶段[ 48、49 ]的后处理方法来修改模型结果</li>
+</ol>
+<h3 id="当前扩散模型存在的问题：单纯的数据预处理不能促进公平"><a href="#当前扩散模型存在的问题：单纯的数据预处理不能促进公平" class="headerlink" title="当前扩散模型存在的问题：单纯的数据预处理不能促进公平"></a>当前扩散模型存在的问题：单纯的数据预处理不能促进公平</h3><ol>
+<li>对数据进行过滤依旧使模型存在偏差，同时泛化变差</li>
+<li>公平的定义是主观的，不同的公平定义都需要一个专门的数据集和对应的模型，不适合大规模训练。不够泛化于下游任务</li>
+<li>Schramowski等人[ 48 ]证明了在预训练过程中学习到的表征可以被利用和利用，以抑制下游任务中不需要的和不适当的行为。我们使用了类似的方法来获得公平的结果，将权力交给了个人用户。</li>
+</ol>
+<h3 id="具体实现：主要针对DM的-post-process-部署阶段"><a href="#具体实现：主要针对DM的-post-process-部署阶段" class="headerlink" title="具体实现：主要针对DM的(post-process)部署阶段"></a>具体实现：主要针对DM的(post-process)部署阶段</h3><ol>
+<li>文本接口：即文本条件化，通过无分类器的指导实现（当前扩散模型的标准技术）</li>
+<li>图像编辑方法：SEGA，因为有强大的界面来进行图像编辑。提供p和ei，通过输入z和cp到输入z，cp，ce拓展了噪声估计<ol>
+<li>最初的无条件图像生成额外地受制于输入提示(无分类器指导)和用户指令(如公平引导γ)。</li>
+<li>多个概念任意组合，可增加或者减少</li>
 </ol>
 </li>
-<li>我们的方法：擦除概念，Erased Stable Diffusion (ESD)<ol>
-<li>训练方法：仅对模型进行微调，不需要从头训练，可以应用于现有的模型，不需要修改输入</li>
-<li>特点：不能被轻易绕过，即使是有权访问的用户</li>
-<li>效果：和SLD一样能够去除攻击图像；还尝试了消除风格和消除物体</li>
+<li>Sega以技术的方式（例如否定和条件）在句子中实现了，通过在输入提示中插入性别相关的单词来改变性别外观，确定编辑单词的正确位置是具有挑战性的，特别是如果提示中的偏见只隐式地存在</li>
+</ol>
+<h3 id="在扩散模型的组成部分中测量公平性"><a href="#在扩散模型的组成部分中测量公平性" class="headerlink" title="在扩散模型的组成部分中测量公平性"></a>在扩散模型的组成部分中测量公平性</h3><ol>
+<li>datasets：检查数据集与目标属性（如gender）的共生性。查看是否符合公平性定义，这个比例也可以作为放大减轻偏差的参考。<ol>
+<li>如何创建属性：采用能够计算文本-图像相似性的多模态模型。计算相关图像R与目标概念的文本描述p的相似性</li>
+<li>通过经验确定的阈值ρ过滤来选择与描述p一致的图像，i表示数据集中的图片</li>
+<li>pre-trained classifier κ（FairFace<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.04913">https://arxiv.org/abs/1908.04913</a>）来决定是否给图片标签，获得这个label，r表示图片集中的图片</li>
 </ol>
 </li>
-</ol>
-<h1 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h1><h2 id="去除图像的方法"><a href="#去除图像的方法" class="headerlink" title="去除图像的方法"></a>去除图像的方法</h2><ol>
-<li>避免输出NSFW的以往方法<ol>
-<li>从训练集中审查图像：重新训练大模型很困难</li>
-<li>psot-hoc：使用分类器修改输出，在推理过程中加入指导；可以有效测试和部署，但容易被用户绕过</li>
-</ol>
-</li>
-<li>对比的以往方法<ol>
-<li>SD2.0：修改数据集，再从头训练</li>
-<li>SLD：当前最先进的基于guidance的方法</li>
-</ol>
-</li>
-<li>我们的方法：第三种模式<ol>
-<li>使用 基于 guidance的模型编辑方法来微调模型</li>
-</ol>
-</li>
-</ol>
-<h2 id="图像隐身Image-cloaking"><a href="#图像隐身Image-cloaking" class="headerlink" title="图像隐身Image cloaking"></a>图像隐身Image cloaking</h2><ol>
-<li>防止大模型借鉴作品的方法：在图像发布到互联网之前，添加对抗性扰动来隐藏图像</li>
-<li>原理：添加扰动，让模型对cloaked蹄片和不相关或不同风格图像混淆</li>
-<li>评价：艺术家能够让AI训练集自我审查内容，却让人类可见</li>
-<li>我们方法的好处：甚至不用内容提供者自我审查内容</li>
-</ol>
-<h2 id="模型编辑"><a href="#模型编辑" class="headerlink" title="模型编辑"></a>模型编辑</h2><ol>
-<li>大模型编辑方法流行<ol>
-<li>对于文本生成：模型已知的事实，可以通过修改特定的神经元或层或超网络hypernetwork，基于一个单一事实陈述来编辑</li>
-<li>对于图像生成：GAN可以用少量的单词、草图、扭曲的收视、复制粘贴来编辑</li>
-<li>对于 text-conditional 扩散模型：通过关联token，只用很少的图像来训练一个新的主题</li>
-</ol>
-</li>
-<li>我们方法的特点：仅给出待移除概念、对象或样式的单一文本描述的情况下，从扩散模型中擦除目标视觉概念</li>
-</ol>
-<h2 id="记忆和不学习-memorization-and-unlearning"><a href="#记忆和不学习-memorization-and-unlearning" class="headerlink" title="记忆和不学习 memorization and unlearning"></a>记忆和不学习 memorization and unlearning</h2><ol>
-<li>machine unlearning：目标是修改模型让它表现为似乎没有特定的训练数据</li>
-<li>我们的工作不是unlearning，因为目标是不是去除已知的训练项目，而是移除从很大且又未知的训练数据中学到的东西</li>
-</ol>
-<h2 id="Energy-based-composition"><a href="#Energy-based-composition" class="headerlink" title="Energy-based composition"></a>Energy-based composition</h2><ol>
-<li>Score-based composition is also the basis for classifier-free-guidance</li>
-<li>把“A and not B”看做A和B的log概率密度</li>
-<li>用于减少语言模型和视觉生成器的非期望输出</li>
-<li>我们的工作，我们使用score composition作为无监督训练数据的来源，来让模型从权重中删除一个不需要的概念</li>
-</ol>
-<h1 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h1><ol>
-<li>马尔科夫链</li>
-<li>Latent diffusion models(LDM)：通过 在预训练变分自编码器的低维隐空间z 中运行编码器E解码器D来提高效率。<ol>
-<li>实质：其实就是有中间形式为潜变量；噪音加到编码后的z-zt，用预测器去噪后，再用解码器还原</li>
-<li>公式：<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697163179225-37402c63-5b06-445a-8b1a-7bd0a2dfcd4a.png#averageHue=%23f9f5f1&clientId=u4804a93c-cf0b-4&from=paste&height=27&id=ucdddbb45&originHeight=31&originWidth=363&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5068&status=done&style=none&taskId=ufe1673a0-43b9-4e58-94f5-570220eded4&title=&width=317" alt="image.png"></li>
-</ol>
-</li>
-<li>classifier-free</li>
-</ol>
-<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><ol>
-<li>概要：对SD模型微调（LDM，包括text encoder T，Diffusion model U-Net θ∗，和decoder D），训练新的参数θ</li>
-<li>目标：生成图像x尽可能减少概念相似的可能性。<ol>
-<li>原有模型和调整模型的关系<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697164217480-b3200a02-e73d-4b91-afff-c03de6a9a3e3.png#averageHue=%23f7f3f0&clientId=u4804a93c-cf0b-4&from=paste&height=32&id=u8d1210f4&originHeight=53&originWidth=167&originalType=binary&ratio=1&rotation=0&showTitle=false&size=3999&status=done&style=none&taskId=u3b79730f-5149-4fea-aa12-542d4f554b0&title=&width=100" alt="image.png">。由η控制程度，Pθ∗(x)代表原有模型，c代表要擦除的概念</li>
-<li>带入贝叶斯公式<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697165025893-bc5a9844-560b-4836-990c-ba5ed3ad7bd5.png#averageHue=%23f5f1ec&clientId=u4804a93c-cf0b-4&from=paste&height=27&id=u079b1e9e&originHeight=36&originWidth=164&originalType=binary&ratio=1&rotation=0&showTitle=false&size=3109&status=done&style=none&taskId=u8fa6e1fb-dc21-46cb-a050-528bed5a06d&title=&width=124" alt="image.png">，得到<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697165035009-330933fb-bd1f-4d7f-8a63-19a97de97346.png#averageHue=%23f3ede7&clientId=u4804a93c-cf0b-4&from=paste&height=20&id=uc3c7ff4a&originHeight=25&originWidth=106&originalType=binary&ratio=1&rotation=0&showTitle=false&size=1851&status=done&style=none&taskId=u02f5da8a-c220-4d6b-8bee-fdf4255ad8c&title=&width=83" alt="image.png">与<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697165043738-66584432-21a2-4d7f-a8b9-2239780124c3.png#averageHue=%23f4f0ea&clientId=u4804a93c-cf0b-4&from=paste&height=20&id=u0585b35a&originHeight=27&originWidth=415&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5960&status=done&style=none&taskId=ufc3c1bd4-7032-465b-89a4-e2dac83ccc2&title=&width=307" alt="image.png">成比例</li>
-<li>结合模型可得<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697165290308-a724f17c-b063-48e5-b070-773cf4942596.png#averageHue=%23f9f5f1&clientId=u4804a93c-cf0b-4&from=paste&height=20&id=u94f5b15d&originHeight=29&originWidth=438&originalType=binary&ratio=1&rotation=0&showTitle=false&size=5344&status=done&style=none&taskId=u3da08c2f-3690-47b0-b3dc-985eb2061c1&title=&width=299" alt="image.png"></li>
-<li>利用冻结的参数θ∗和普通参数θ来消除概念。把有条件的预测和无条件的预测合并后消除概念相关噪声<img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697166015298-8b951317-5ccc-4bde-b6d4-5ed791281f69.png#averageHue=%23f3f0ee&clientId=uf887eaa2-0ee4-4&from=paste&height=338&id=u66fb3ece&originHeight=338&originWidth=1006&originalType=binary&ratio=1&rotation=0&showTitle=false&size=114020&status=done&style=none&taskId=u7c0e8a41-64f5-4d53-8d0f-90554768401&title=&width=1006" alt="image.png"></li>
-</ol>
-</li>
-<li>importance of parameter choice<ol>
-<li>背景：擦除效果取决于参数子集，主要是cross-attention parameters and noncross-attention parameters<ol>
-<li><p>Cross-attention parameters：直接依赖于文本 prompt（a），其他参数和视觉概念有关（b，没有在prompt提及）<br>什么是cross-attentionCross-attention的输入来自不同的序列，Self-attention的输入来自同序列，也就是所谓的输入不同，但是除此之外，基本一致</p>
-</li>
-<li><p>说明：在控制prompt输入的情况下，self-attention效果差不多，而cross-attention有较大区别</p>
-</li>
+<li>representation<ol>
+<li>使用了image Embedding Association Test (iEAT)，可以测试表示（如encoded images）之间的关联<ol>
+<li>iEAT组成：两个属性集A（职业）和B（家庭），两个目标集K（男）和L（女），如偏见模型可能会把K和A联系起来</li>
+<li>计算编码目标图像与属性的差异关联，s计算编码图像w和属性a,b的关联</li>
+<li>我们通过计算单侧 p 值以及效应大小 d 来评估统计显著性，σ表示标准差</li>
 </ol>
 </li>
 </ol>
 </li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697194323372-95f03804-2b30-42e4-aa67-b0f5ebb672ac.png#averageHue=%23b89060&clientId=uf887eaa2-0ee4-4&from=paste&height=328&id=WwR05&originHeight=438&originWidth=477&originalType=binary&ratio=1&rotation=0&showTitle=false&size=180213&status=done&style=none&taskId=u77a54adc-ae13-46d4-af9e-1e6bfa242c7&title=&width=357" alt="image.png"></p>
-<ol start="2">
-<li>解决：微调cross attention<ol>
-<li>提出了ESD-x，在基于prompt控制擦除的场景，如风格；对只微调cross-attention的微调叫做ESD-x-η，η是负引导的强度参数。η &#x3D; 1时，写作ESD - x和ESD - u</li>
-<li>提出了ESD-u，在与text prompt无关的时候，如NSFW</li>
+<li>Outcome：评估了stable diffusion生成的图像<ol>
+<li>与数据集评测类似，创建一个合成图像数据集，计算属性相关性，从而根据定义1评估公平性</li>
+<li>研究训练数据和结果之间潜在的偏见偏移，使用和搜索数据集同样的promt生成图片，也使用相同的分类器 κ来确定图像g对于保护属性的标签</li>
 </ol>
 </li>
-<li>效果</li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697194863081-160a1123-c86d-4b43-bc1b-5a7ec3f8c92a.png#averageHue=%23b49969&clientId=uf887eaa2-0ee4-4&from=paste&height=395&id=uba6c4e55&originHeight=642&originWidth=557&originalType=binary&ratio=1&rotation=0&showTitle=false&size=560995&status=done&style=none&taskId=u4881d4be-7125-44d2-95f5-7ef69085ce8&title=&width=343" alt="image.png"></p>
-<pre><code>  1. 擦除梵高风格：ESD-u和其他无条件参数消除了整体的风格和相关的任何细节；ESD-x通过prompt提示消除了单一的梵高风格，没有影响其他内容
-  2. 擦除NSFW：在移除NSFW（如裸体）时，当提示没有提到裸体的概念的时候，ESD - u在该应用中表现最好
-</code></pre>
-<h1 id="实验方法"><a href="#实验方法" class="headerlink" title="实验方法"></a>实验方法</h1><ol>
-<li>配置：使用Adam优化器在批次大小为1，学习率为1e - 5的情况下对所有模型进行1000次梯度更新步骤的训练</li>
-<li>ESD - x方法微调了交叉注意力，ESD - u微调了稳定扩散</li>
-<li>基线方法：SD，SLD，SD-Neg-Prompt</li>
-<li>数据：5位现代艺术家和艺术主题【Kelly McKernan, Thomas Kinkade, Tyler Edlin, Kilian Eng and the series “Ajin: Demi-Human,”】</li>
-<li>发现特定的艺术家特定风格被从模型中移除，而提示的内容和结构被保留</li>
+<h3 id="实验方案"><a href="#实验方案" class="headerlink" title="实验方案"></a>实验方案</h3><ol>
+<li>数据：为了进行检查，我们创建了LAION-5B的新子集，其中包含超过180万张图像，显示具有可识别面孔和可识别职业的人类，并分别生成了超过37,000张具有SD和Fair Diffusion的图像。我们总共评估了超过200万张图像的性别职业偏见。</li>
+<li>指令工具：<strong>SEGA</strong>，用于编辑图像并指导图像生成以获得更公平的结果</li>
+<li>对属性分类：<strong>FairFace</strong>，作为κ对受保护属性进行分类，即面部（性别）属性</li>
+<li>prompt设计：使用<strong>CLIP</strong>来识别LAION-5B的相关图像（描绘可识别的职业），计算图像与prompt之间的相似性（阈值0.27）。prompt模板p &#x3D; “A photo of the face of a {occ}”，该模板还用于生成带有SD的图像，此时occ ∈ {“firefighter”, “teacher”, “aide”, …}整个列表包含 150 多个不同的职业15，我们为每个职业提示生成了 250 张图像</li>
+<li>公平假设：假设需要相同比例的女性和男性图像，如Def.1所示。评估受分类器限制，只能促进二进制的性别分类（当然是非二元的），但原则上可以应用与非二元</li>
+<li>统计措施：计算了每组数据（二进制的男女的脸）进一步了解每个组成部分的整体性别职业偏见。因此，我们将职业列表分为f和m，其中f组表示更多偏向女性的职业，而m组则表示其他。如果LAION中女性出现的比率&gt;0.5，我们分别使用f和其他m。随后，我们评估每个组件的这些列表并生成相应的箱形图。如果没有这种组区分，平均偏差位于公平边界内（尽管箱形图显示高方差），因为两个方向都存在很强的偏差，这些偏差在总体均值计算中相互抵消。</li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697198029818-0ddd606f-206a-48c2-b4fb-93c2c125ee35.png#averageHue=%236b9e77&clientId=uf887eaa2-0ee4-4&from=paste&height=584&id=ub2c6db01&originHeight=584&originWidth=1152&originalType=binary&ratio=1&rotation=0&showTitle=false&size=1217096&status=done&style=none&taskId=u9f1a0246-9795-44c3-ad61-d914c76267f&title=&width=1152" alt="image.png"></p>
-<h2 id="艺术风格消除"><a href="#艺术风格消除" class="headerlink" title="艺术风格消除"></a>艺术风格消除</h2><ol>
-<li>数据：对5位艺术家，每位收集40幅搜索排名靠前的图像。为每一位找了一个相似的人类画家，每位收集12-25件作品</li>
-<li>prompt：40种，如“Art by [artist]”, “A design of [artist]”, “An image in the style of [artist]”, “A reproduction of the famous art of [artist]”</li>
-<li>每个提示有4个seeds点的图像，得到1000张图像的数据集</li>
-<li>评估：让13个参与者在 5（真实图像）+1（生成的消除后的图像）上每人回答170次，用李克特量表（非常同意、同意、不一定、不同意、非常不同意），评估他们对实验图片由同一个艺术家创作的信心程度<ol>
-<li>评估的内容：ESD - x方法去除五位现代艺术家风格的有效性；测量了生成的艺术形象与真实图像的相似性；比较我们方法中引入的干扰量对其他风格影响的程度</li>
-<li>期望：相似但风格不同</li>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><ol>
+<li>目标：调查偏见来源，使用Fair Diffusion在结果中展示缓解作用</li>
+<li>模型选择：扩散模型选用Stable Diffusion 1.5，对应底层大规模数据集LAION-5B，预训练模型CLIP</li>
+<li>生成使用的prompt模版：p &#x3D; “A photo of the face of a {occ}”，where occ ∈ {“firefighter”, “teacher”, “aide”, …}.</li>
+<li>实验内容：男女比例</li>
+<li>结果：效果对比如下，上排都是白人男性</li>
+<li>结论：SD每个部分都存在偏差和不公平性</li>
+</ol>
+<h3 id="Stable-Diffusion中数据、模型建立不公平的现象"><a href="#Stable-Diffusion中数据、模型建立不公平的现象" class="headerlink" title="Stable Diffusion中数据、模型建立不公平的现象"></a>Stable Diffusion中数据、模型建立不公平的现象</h3><ol>
+<li>在四个职业领域(science, arts, engineering, and caregiving).的子集上评估LAION-5B</li>
+<li>用κ来对各职业领域的性别进行分类<ol>
+<li>在艺术或护理等职业领域，女性出现的比例更高。另一方面，科学或工程的比率较低</li>
 </ol>
 </li>
-<li>结果</li>
+<li>对CLIP进行偏差关联测试 3.5.b，检查不同概念的编码图像之间的相似性，结果如下<ol>
+<li>男性样子的编码图像比女性样人的编码图像更接近工程相关图像，而女性形象又更接近与护理相关的图像</li>
+<li>当性别职业偏见的关联测试被种族属性修改时，我们发现偏见放大。在这种情况下，男性形象由欧美人外表表示，女性形象由非裔美国人外表表示。</li>
 </ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/39001332/1697198069217-e1a2e2a0-f49a-4beb-954a-58615647d0da.png#averageHue=%23f4f3f1&clientId=uf887eaa2-0ee4-4&from=paste&height=563&id=u8022e659&originHeight=563&originWidth=550&originalType=binary&ratio=1&rotation=0&showTitle=false&size=69008&status=done&style=none&taskId=u012f1e53-a8d0-4202-9223-de96bd51f8e&title=&width=550" alt="image.png"></p>
+</li>
+</ol>
+<h3 id="outcome（下游任务和结果）中的偏差"><a href="#outcome（下游任务和结果）中的偏差" class="headerlink" title="outcome（下游任务和结果）中的偏差"></a>outcome（下游任务和结果）中的偏差</h3><ol>
+<li>评估了从SD生成的图像，图4描绘了六个示范职业的女性出现率及其每组中位数<ol>
+<li>SD生成的图像（蓝线）也包含各种职业的明显性别偏见</li>
+</ol>
+</li>
+</ol>
+<h3 id="LAION-5B和stable-diffution的结果之间是否存在偏差"><a href="#LAION-5B和stable-diffution的结果之间是否存在偏差" class="headerlink" title="LAION-5B和stable diffution的结果之间是否存在偏差"></a>LAION-5B和stable diffution的结果之间是否存在偏差</h3><ol>
+<li>LAION-5B在生成的图像中的性别偏见被放大了56%，反映了22%，缓解了22%</li>
+<li>进行了数据统计（了解每个组成部分的整体性别偏见）SD生成的图像和检查的LAION-5B图像的中位数（橙色线）明显超出了公平边界。这意味着LAION-5B和SD生成的图像根据定义1是不公平的。<ol>
+<li>总的来说，在150种职业中，有64种更偏向于女性，而86种更偏向于男性。更重要的是，与LAION - 5B相比，( f和m)的SD生成图像的中值距离公平边界(中间)更远。</li>
+<li>这种偏差的转变是由于训练数据和目标之间复杂的相互作用，以及CLIP固有的有偏表示，而这些又受到不同训练集的影响。</li>
+</ol>
+</li>
+</ol>
+<h3 id="Fair-Diffusion之后的变化"><a href="#Fair-Diffusion之后的变化" class="headerlink" title="Fair Diffusion之后的变化"></a>Fair Diffusion之后的变化</h3><ol>
+<li>建立公平的fair diffusion：用FD对SD用fair guidance γ进行引导，e1-朝向女性，e2-远离男性；并以50 %的概率随机切换朝向男性出现和远离女性出现的方向，从而实现比例均分</li>
+<li>缓解outcome中的偏见：箱型图中有调整后的结果。下图显示对各个职业调整后的结果</li>
+<li>超越性别的趋近偏向</li>
+</ol>
+<h2 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h2><ol>
+<li>转移偏差范式：更公平的模型需要能够自动检测不公平性，如果预先知道可能会产生偏差的概念可以预先填写</li>
+<li>模型最终是否公平：公平是不完整的，只实现了outcome的公平是不够的。要实现完全公平需要每个步骤都增加公平性。用户可以设置不均匀的概率控制输出0.4&#x2F;0.6</li>
+<li>二元性别标签：本研究中性别代表性有限，缺乏超越二元性别分类的工具。提倡将性别编码为非二元</li>
+<li>技术限制：LAION-5B不具有现实代表性，clip本身也有偏见，只能通过选定阈值来控制。性别分类FairFace可能也有偏见，在当前已经是最优了。使用了SEGA也要承受他的约束，即改变必须可表述</li>
+<li>超越文本引导的公平性：获取编码的方式可以超越自然语言。可以通过别的多模态的方法实现</li>
+<li>用户交互的挑战：恶意用户会滥用它</li>
+</ol>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><ol>
+<li>Fair Diffusion：可以生成公平的结果</li>
+<li>衡量公平性：探索了 LAION-5B，并把iEAT应用于预训练表示编码器( CLIP )，发现性别和种族歧视在下游扩散模型中存在</li>
+<li>文本界面控制：控制了公平性，展示了如何在任意方向上改变生成图像中的偏见，从而产生任意比例的图像。可以防止扩散模型隐式和无意地反映甚至放大偏差</li>
+<li>建议：谨慎使用这些模型</li>
+<li>未来工作：对组件拆解，确定偏差来源，比较不同模型的公平性也很有意思</li>
+</ol>
 
       </div>
       
@@ -322,11 +341,16 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2024-04-21 16:18:03
+              2024-04-21 16:33:15
             </span>
             
           </div>
           <div class="post-foot-prev">
+            
+              <a href="/2024/04/21/%E3%80%90%E8%AE%BA%E6%96%87%E3%80%91Multimodal-datasets-misogyny-pornography-and-malignant-stereotypes/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
             
           </div>
         </div>
@@ -340,7 +364,7 @@
     <div class="title">Contents</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Related-Work"><span class="toc-text">Related Work</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%BB%E9%99%A4%E5%9B%BE%E5%83%8F%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">去除图像的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E9%9A%90%E8%BA%ABImage-cloaking"><span class="toc-text">图像隐身Image cloaking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%BC%96%E8%BE%91"><span class="toc-text">模型编辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%B0%E5%BF%86%E5%92%8C%E4%B8%8D%E5%AD%A6%E4%B9%A0-memorization-and-unlearning"><span class="toc-text">记忆和不学习 memorization and unlearning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Energy-based-composition"><span class="toc-text">Energy-based composition</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Background"><span class="toc-text">Background</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Method"><span class="toc-text">Method</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%B3%95"><span class="toc-text">实验方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%89%BA%E6%9C%AF%E9%A3%8E%E6%A0%BC%E6%B6%88%E9%99%A4"><span class="toc-text">艺术风格消除</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fair-Diffusion"><span class="toc-text">Fair Diffusion</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%B9%B3%E6%80%A7%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">公平性的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%96%E7%95%A5%EF%BC%9A%E5%9C%A8%E6%96%87%E6%9C%AC%E6%8C%87%E5%AF%BC%E4%B8%8B%E5%AE%9E%E7%8E%B0%E5%85%AC%E5%B9%B3%E6%80%A7"><span class="toc-text">策略：在文本指导下实现公平性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-text">具体实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Diffusion-model-%E4%BB%8B%E7%BB%8D"><span class="toc-text">Diffusion model 介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E5%B9%B3%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95"><span class="toc-text">公平性模型的常见方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E5%89%8D%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A%E5%8D%95%E7%BA%AF%E7%9A%84%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E4%B8%8D%E8%83%BD%E4%BF%83%E8%BF%9B%E5%85%AC%E5%B9%B3"><span class="toc-text">当前扩散模型存在的问题：单纯的数据预处理不能促进公平</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%EF%BC%9A%E4%B8%BB%E8%A6%81%E9%92%88%E5%AF%B9DM%E7%9A%84-post-process-%E9%83%A8%E7%BD%B2%E9%98%B6%E6%AE%B5"><span class="toc-text">具体实现：主要针对DM的(post-process)部署阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86%E4%B8%AD%E6%B5%8B%E9%87%8F%E5%85%AC%E5%B9%B3%E6%80%A7"><span class="toc-text">在扩散模型的组成部分中测量公平性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%96%B9%E6%A1%88"><span class="toc-text">实验方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-text">实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Stable-Diffusion%E4%B8%AD%E6%95%B0%E6%8D%AE%E3%80%81%E6%A8%A1%E5%9E%8B%E5%BB%BA%E7%AB%8B%E4%B8%8D%E5%85%AC%E5%B9%B3%E7%9A%84%E7%8E%B0%E8%B1%A1"><span class="toc-text">Stable Diffusion中数据、模型建立不公平的现象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#outcome%EF%BC%88%E4%B8%8B%E6%B8%B8%E4%BB%BB%E5%8A%A1%E5%92%8C%E7%BB%93%E6%9E%9C%EF%BC%89%E4%B8%AD%E7%9A%84%E5%81%8F%E5%B7%AE"><span class="toc-text">outcome（下游任务和结果）中的偏差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LAION-5B%E5%92%8Cstable-diffution%E7%9A%84%E7%BB%93%E6%9E%9C%E4%B9%8B%E9%97%B4%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E5%81%8F%E5%B7%AE"><span class="toc-text">LAION-5B和stable diffution的结果之间是否存在偏差</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Fair-Diffusion%E4%B9%8B%E5%90%8E%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-text">Fair Diffusion之后的变化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A8%E8%AE%BA"><span class="toc-text">讨论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li></ol></li></ol>
       
     </div>
   </div>
@@ -628,7 +652,7 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + My%20New%20Post + '&url=' + http%3A%2F%2Fexample.com%2F2024%2F04%2F21%2FMy-New-Post%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E3%80%90%E8%AE%BA%E6%96%87%E3%80%91Fair%20diffusion-Instructing%20Text-to-Image%20Generation%20Models%20on%20Fairness + '&url=' + http%3A%2F%2Fexample.com%2F2024%2F04%2F21%2FMy-New-Post%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
