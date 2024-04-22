@@ -153,7 +153,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2024-04-22 09:40:21
+          2024-04-22 09:59:46
         </span>
         
       </div>
@@ -164,21 +164,31 @@
 <p>然而，扩散模型的内容大量涌入社会，凸显了解决它们的偏见问题的迫切需求。最近的研究表明扩散模型中存在职业偏见、肤色集中以及刻板关联。虽然现有的去偏扩散方法具有一些优点，比如轻量级，但它们难以适应广泛范围的提示。此外，它们只能模糊地消除有偏关联，而不能提供控制生成图像分布的方法。值得注意的是，对公平性的看法在社会和特定问题中可能存在广泛的差异。绝对平等并不总是理想的结果。</p>
 <p>因此本博客会分享相关技术，解决该类问题</p>
 <h2 id="页面结构"><a href="#页面结构" class="headerlink" title="页面结构"></a>页面结构</h2><p>本博客共分为四大版块：首页、博客、我的标签、我的介绍。</p>
-<h3 id="具体页面"><a href="#具体页面" class="headerlink" title="具体页面"></a>具体页面</h3><ol>
-<li>首页<br><img src="D:\项目\Hexo-Blog\source\image\about.png" alt="Alt text"></li>
-<li>博客<br><img src="/image%5Cjuti.png" alt="Alt text"></li>
-<li>我的标签<br><img src="/image%5Cshouye.png" alt="Alt text"></li>
-<li>我的介绍<br><img src="/image%5Cabout.png" alt="Alt text"></li>
+<h2 id="具体页面"><a href="#具体页面" class="headerlink" title="具体页面"></a>具体页面</h2><ol>
+<li>首页：首页中显示了我的文章概览，访问用户可以通过点击文章名称进入对应页面。<br><img src="/..%5Cimage%5Cshouye.png" alt="Alt text"></li>
+<li>Archives：根据日期来快速找到文章。<br><img src="/..%5Cimage%5Car.png" alt="Alt text"></li>
+<li>博客：点击文章链接，进入具体博客。在右侧显示了文章目录，在下方通过prev和next按钮可以快速导航到上一篇或下一篇博客。<br><img src="/..%5Cimage%5Cjuti.png" alt="Alt text"><br><img src="/..%5Cimage%5Cjuti2.png" alt="Alt text"></li>
+<li>我的介绍<br><img src="/..%5Cimage%5Cabout.png" alt="Alt text"></li>
 </ol>
-<h1 id="技术汇报"><a href="#技术汇报" class="headerlink" title="技术汇报"></a>技术汇报</h1><h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
-<p>Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
-<h3 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h3><p>node.js 一种javascript的运行环境，能够使得javascript能够脱离浏览器运行。以前js只能在浏览器基础上运行，能够操作的也知识浏览器，比如浏览器上的放大缩小操作，前提是浏览器开启的基础上进行操作（浏览器是客户端）。有了node.js之后，js可以在服务端进行操作，直接在系统上进行操作，可以打开、关闭浏览器等操作。</p>
-<p>简单的说 Node.js 就是运行在服务端的 JavaScript。Node.js 是一个基于Chrome JavaScript 运行时建立的一个平台。Node.js是一个事件驱动I&#x2F;O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行Javascript的速度非常快，性能非常好。</p>
-<h3 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h3><p>Hexo 是一个基于 node.js 的博客框架。 它简单、强大，支持 Markdown 写作，一键就可以部署到 GitHub 或 Coding 平台，瞬间拥有个人博客网站，是程序员、技术宅居家必备利器。 同时 Hexo 还有丰富的主题和插件可供定制和扩展。</p>
-<h3 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h3><p>Markdown是极度精简的，只用了非常必要的少量标记就能实现文档排版所需要的必要功能。</p>
+<h1 id="技术汇报"><a href="#技术汇报" class="headerlink" title="技术汇报"></a>技术汇报</h1><h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
+<p>它能够追踪文件的修改历史，方便查看、比较和恢复不同版本的文件，从而有助于团队协作和项目管理。同时，Git还支持分支管理，能够创建新的分支进行功能开发或bug修复，不会影响到主线代码，待开发完成后再合并到主分支。</p>
+<p>此外，Git作为项目的备份工具，可以将项目代码存储在远程仓库中，以防止数据丢失，并能够快速恢复到之前的状态。Git还能够使多人协作开发变得更加容易，团队成员可以共享代码并对其进行合作开发，也能够轻松地追踪每个人的工作进度。其分支管理和合并功能使得开发流程更加高效和灵活，能够同时进行多个功能的开发，并能够快速地合并和发布新功能。</p>
+<p>最后，Git作为开源版本控制系统，拥有庞大的开源社区，可以获得大量的开源项目和工具，为开发工作提供支持和帮助。综上所述，Git在现代软件开发中具有重要的地位，是提高团队协作效率、管理项目的有力工具。</p>
+<h2 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h2><p>node.js 一种javascript的运行环境，能够使得javascript能够脱离浏览器运行。以前js只能在浏览器基础上运行，能够操作的也知识浏览器，比如浏览器上的放大缩小操作，前提是浏览器开启的基础上进行操作（浏览器是客户端）。有了node.js之后，js可以在服务端进行操作，直接在系统上进行操作，可以打开、关闭浏览器等操作。</p>
+<p>Node.js的优势在于其单语言开发，使用JavaScript既可以开发前端又可以开发后端，避免了学习多种语言的成本，提高了开发效率；其高性能基于事件驱动、非阻塞I&#x2F;O模型，适合处理高并发请求，具有较高的性能表现；此外，Node.js拥有丰富的模块库，通过NPM可以快速集成各种功能，提高了开发效率；它还是轻量和快速的，采用事件驱动、异步编程，能够快速响应请求，适合实时应用；Node.js具有跨平台特性，可以运行在多个平台上；并且拥有庞大的开发者社区，提供了大量的资源和解决方案，便于开发和维护；最后，由于其事件驱动的特性，Node.js适用于开发实时的Web应用，如聊天应用、在线游戏等。</p>
+<h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><p>Hexo 是一个基于 node.js 的博客框架。 它简单、强大，支持 Markdown 写作，一键就可以部署到 GitHub 或 Coding 平台，瞬间拥有个人博客网站，是程序员、技术宅居家必备利器。 同时 Hexo 还有丰富的主题和插件可供定制和扩展。</p>
+<h2 id="markdown"><a href="#markdown" class="headerlink" title="markdown"></a>markdown</h2><p>Markdown是极度精简的，只用了非常必要的少量标记就能实现文档排版所需要的必要功能。</p>
 <p>Markdown的根本原理在于，像docx和html这样的富文本格式，要实现相应的功能，不可能一行一行地输入上述复杂的代码，都需要插件来操作代码实现“加粗、标题、代码块、字体”等格式，这些插件都需要用鼠标操作。而因为Markdown标记很简单，这就为我们直接操作代码提供了可能性。我们可以直接输入标记，不用鼠标就能完成排版。这就是Markown高效的原理。</p>
 <p>而且由于标记非常简单，我们用txt编辑器或其它任何富文本编辑器都能够打开和编辑Markdown文档，即使编辑器不能够识别Mardown的语法格式，也能直接把 .md的文件当作 .txt格式来显示，并不影响我们查看文章的内容。</p>
-<h1 id="反思总结"><a href="#反思总结" class="headerlink" title="反思总结"></a>反思总结</h1>
+<h1 id="反思总结"><a href="#反思总结" class="headerlink" title="反思总结"></a>反思总结</h1><p>使用Hexo和GitHub制作个人博客是一种简单高效的方式。通过Hexo生成静态页面，Markdown编写文章，再通过GitHub托管源码和部署博客，不仅方便管理和备份博客内容，还可以享受GitHub Pages的免费部署。此外，Hexo提供丰富的主题和插件支持，可以根据自己的需求进行选择和定制，同时也可以通过GitHub社区和文档获取帮助和学习资源，持续改进和提升博客质量，让博客更具吸引力和影响力。</p>
+<p>在使用Hexo和GitHub制作个人博客的过程中，可能会遇到一些常见问题。</p>
+<p>首先是主题和插件兼容性问题，选择的主题或插件可能与Hexo版本不兼容，导致网站无法正常生成或显示。解决方法是查看主题或插件的文档，确认兼容的Hexo版本，并及时更新。</p>
+<p>另外，域名解析问题也是一个可能的困扰，配置域名解析时可能会出现错误，导致无法访问博客。解决方法是仔细查看域名解析的设置，确保正确配置，并等待DNS生效。</p>
+<p>部署失败是另一个常见问题，在部署博客时可能会出现部署失败的情况，无法更新内容。解决方法是检查GitHub仓库和本地代码的同步性，确保提交到GitHub的代码与本地一致，并尝试重新部署。</p>
+<p>此外，博客内容丢失可能会让人苦恼，为避免内容丢失，需要定期备份博客内容，避免操作失误，同时可以使用GitHub的版本控制功能进行恢复。随着访问量的增加，网站性能优化也变得重要起来。可能会遇到网站加载速度变慢的问题，解决方法是优化博客的图片和资源加载，使用CDN加速，减少不必要的插件和功能等。</p>
+<p>最后，博客的安全性也是需要关注的问题，博客可能会受到黑客攻击或恶意代码注入的威胁。解决方法是及时更新Hexo和插件版本，加强博客的安全配置，如使用HTTPS协议等。</p>
+<p>综上所述，灵活应对问题，保持稳定和安全是维护个人博客的关键。</p>
+
       </div>
       
         <div class="prev-or-next">
@@ -193,7 +203,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2024-04-22 09:40:21
+              2024-04-22 09:59:46
             </span>
             
           </div>
@@ -211,7 +221,7 @@
     <div class="title">Contents</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E6%A6%82%E8%BF%B0"><span class="toc-text">内容概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%B1%95%E7%A4%BA"><span class="toc-text">内容展示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98"><span class="toc-text">博客主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84"><span class="toc-text">页面结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E9%A1%B5%E9%9D%A2"><span class="toc-text">具体页面</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%B1%87%E6%8A%A5"><span class="toc-text">技术汇报</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git"><span class="toc-text">git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-js"><span class="toc-text">node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo"><span class="toc-text">hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#markdown"><span class="toc-text">markdown</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E6%80%9D%E6%80%BB%E7%BB%93"><span class="toc-text">反思总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E6%A6%82%E8%BF%B0"><span class="toc-text">内容概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%B1%95%E7%A4%BA"><span class="toc-text">内容展示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98"><span class="toc-text">博客主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84"><span class="toc-text">页面结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E9%A1%B5%E9%9D%A2"><span class="toc-text">具体页面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E6%B1%87%E6%8A%A5"><span class="toc-text">技术汇报</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git"><span class="toc-text">git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#node-js"><span class="toc-text">node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo"><span class="toc-text">hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#markdown"><span class="toc-text">markdown</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E6%80%9D%E6%80%BB%E7%BB%93"><span class="toc-text">反思总结</span></a></li></ol>
       
     </div>
   </div>
